@@ -1,2 +1,2 @@
-# -user-.github.io
+# thegreatwilds.github.io
 Main site for The Great Wilds
