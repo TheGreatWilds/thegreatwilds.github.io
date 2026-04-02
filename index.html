@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Great Wilds</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --teal:  #0CB8C9;
+      --dark:  #111110;
+      --light: #F4F3EF;
+      --muted: #999994;
+    }
+
+    html, body {
+      height: 100%;
+      background: var(--light);
+      color: var(--dark);
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    /* ─── Layout ─────────────────────────────────────────────── */
+    .container {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* ─── Left panel ─────────────────────────────────────────── */
+    .left {
+      width: 55%;
+      padding: 64px 56px 80px;
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+      animation: fadeUp 0.7s ease both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Band name */
+    .band-name {
+      font-size: clamp(52px, 5.8vw, 90px);
+      font-weight: 900;
+      line-height: 0.88;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 28px;
+    }
+
+    /* Teal rule */
+    .rule {
+      width: 52px;
+      height: 3px;
+      background: var(--teal);
+      margin-bottom: 28px;
+    }
+
+    /* Social icons */
+    .social-icons {
+      display: flex;
+      gap: 14px;
+      margin-bottom: 64px;
+    }
+
+    .social-icons a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--dark);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .social-icons a:hover { color: var(--teal); }
+    .social-icons svg { width: 26px; height: 26px; }
+
+    /* Section label */
+    .label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 18px;
+    }
+
+    /* Gig list */
+    .gigs {
+      list-style: none;
+      margin-bottom: 64px;
+    }
+
+    .gigs li {
+      display: flex;
+      align-items: baseline;
+      gap: 20px;
+      padding: 13px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.09);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .gigs li:first-child {
+      border-top: 1px solid rgba(0,0,0,0.09);
+    }
+
+    .gig-date {
+      color: var(--teal);
+      min-width: 82px;
+      flex-shrink: 0;
+    }
+
+    .gig-venue {
+      color: var(--dark);
+    }
+
+    /* Spotify embed */
+    .spotify-wrap {
+      margin-bottom: 40px;
+    }
+
+    .spotify-wrap iframe {
+      width: 100%;
+      border: none;
+      display: block;
+    }
+
+    /* ─── Right panel (sticky photo) ────────────────────────── */
+    .right {
+      width: 45%;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .right img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      /* Gives the photo the same slightly muted quality as your mockup */
+      filter: grayscale(15%) contrast(1.04);
+    }
+
+    /* Fallback if photo.jpg is missing — matches your mockup's grey tone */
+    .right {
+      background: #c8c8c4;
+    }
+
+    /* ─── Mobile ─────────────────────────────────────────────── */
+    @media (max-width: 720px) {
+      .container    { flex-direction: column-reverse; }
+      .right        { width: 100%; height: 56vw; position: relative; top: 0; }
+      .left         { width: 100%; padding: 40px 28px 64px; }
+      .band-name    { font-size: clamp(44px, 12vw, 72px); }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- ── Left: all your content ─────────────────────────────── -->
+  <div class="left">
+
+    <div class="band-name">The<br>Great<br>Wilds</div>
+
+    <div class="rule"></div>
+
+    <div class="social-icons">
+
+      <!-- Instagram -->
+      <!-- TODO: replace href with your actual Instagram URL -->
+      <a href="https://www.instagram.com/greatwildsmusic/" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"
+             stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="5.5"/>
+          <circle cx="12" cy="12" r="4.2"/>
+          <circle cx="17.6" cy="6.4" r="0.6" fill="currentColor" stroke="none"/>
+        </svg>
+      </a>
+
+      <!-- Spotify -->
+      <!-- TODO: replace href with your actual Spotify artist URL -->
+      <a href="https://open.spotify.com/artist/3f1c2TQz6qzZwd5xxQFrZx" target="_blank" rel="noopener" aria-label="Spotify">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477
+                   10-10S17.523 2 12 2zm4.586 14.424a.622.622 0
+                   01-.857.207c-2.348-1.435-5.304-1.76-8.785-.964a.622.622
+                   0 11-.277-1.215c3.809-.87 7.076-.496 9.713
+                   1.115.294.181.387.565.206.857zm1.223-2.722a.78.78 0
+                   01-1.072.257c-2.687-1.652-6.785-2.13-9.965-1.166a.78.78
+                   0 01-.973-.519.78.78 0
+                   01.519-.972c3.632-1.102 8.147-.568 11.234
+                   1.328a.78.78 0 01.257 1.072zm.105-2.835C14.692 8.95
+                   9.375 8.775 6.297 9.71a.937.937 0
+                   11-.543-1.794c3.543-1.072 9.433-.865 13.158
+                   1.37a.937.937 0 01-.998 1.581z"/>
+        </svg>
+      </a>
+
+    </div>
+
+    <!-- Gig dates -->
+    <div class="label">Upcoming shows</div>
+    <ul class="gigs">
+      <!-- TODO: add / remove <li> entries as gigs change -->
+      <li>
+        <span class="gig-date">TBC</span>
+        <span class="gig-venue">More dates to follow</span>
+      </li>
+    </ul>
+
+  </div>
+
+  <!-- ── Right: your photo ───────────────────────────────────── -->
+  <div class="right">
+    <!--
+      TODO: save your photo as photo.jpg in the same folder as this file.
+      The image will fill the panel and stay fixed while the left side scrolls.
+    -->
+    <img src="photo.jpg" alt="The Great Wilds">
+  </div>
+
+</div>
+
+</body>
+</html>
